@@ -6,19 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEMO-Minecraft</title>
     <style>
-	    #logo-container {
-        position: absolute; /* Позволяет установить точное позиционирование */
-        top: 0; /* Устанавливает расстояние от верхней границы страницы до контейнера */
-        left: 0; /* Устанавливает расстояние от левой границы страницы до контейнера */
-      }
+	  .stripe {
+            background-color: #1b2230;
+            position: fixed; /* Чтобы полоска оставалась на своем месте */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Высота полоски */
+        }
+        
+        /* Стиль для картинки */
+        .image {
+            width: 50px; /* Ширина картинки */
+            height: 50px; /* Высота картинки */
+            display: inline-block; /* Картинка будет располагаться в полоске */
+            background-image: url("https://raw.githubusercontent.com/MEMO-Minecraft/MEMO-Minecraft.github.io/main/логотип.png"); /* Путь к файлу картинки */
+            background-size: cover; /* Масштабирование картинки, чтобы она заполняла всю область */
+            background-position: center; /* Позиционирование картинки по центру */
+        }
 		body {
 			background-color: #1b2230;
 		}
 	</style>
 </head>
 <body>
-	<div id="logo-container">
-      <img src="https://github.com/MEMO-Minecraft/MEMO-Minecraft.github.io/blob/main/логотип.png?raw=true" alt="Логотип">
+	<div class="stripe">
+        <div class="image"></div> <!-- Размещаем картинку внутри полоски -->
+        <span>Текст</span> <!-- Текст, который следует после картинки -->
     </div>	
      <img src="https://minecraft.rent/static/images/0c7f59d5b5ca2bc68e84.png" alt="Произошла ошибка лох" width="100%" height="750.52">    
 </body>
