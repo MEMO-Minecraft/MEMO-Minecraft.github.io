@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEMO-Minecraft</title>
     <style>	  
-       #image {
-            position: fixed; /* задаем абсолютное позиционирование для изображения */
-            top: 0;
-            left: 0;
+       img {
+            position: fixed; /* фиксируем позицию элемента */
+            top: 0; /* прижимаем к верхнему краю */
+            left: 0; /* прижимаем к левому краю */
+            width: 100px; /* устанавливаем ширину элемента */
+            height: 100px; /* устанавливаем высоту элемента */
+            margin: 10px; /* задаем отступы */
         }
       body {
 	      background-color: #1b2230;
@@ -17,18 +20,27 @@
 	</style>
 </head>
 <body>	
-	<img id="image" src="https://raw.githubusercontent.com/MEMO-Minecraft/MEMO-Minecraft.github.io/main/логотип.png" alt="Image">
-    
+	<img src="путь_к_изображению" alt="картинка">
+  
     <script>
-        window.addEventListener("mousemove", function(event) { // обрабатываем событие движения мыши
-            var image = document.getElementById("image");
+        /*
+          Создаем функцию, которая будет вызываться при движении курсора. 
+          Она изменяет позицию картинки, чтобы она оставалась в левом верхнем углу.
+        */
+        function moveImage(event) {
+            var img = document.querySelector('img'); // находим элемент img
+            var x = event.clientX; // получаем горизонтальную координату положения курсора
+            var y = event.clientY; // получаем вертикальную координату положения курсора
             
-            var mouseX = event.clientX; // получаем текущую позицию курсора по оси X
-            var mouseY = event.clientY; // получаем текущую позицию курсора по оси Y
-            
-            image.style.left = mouseX + "px"; // устанавливаем новое значение левого отступа для изображения
-            image.style.top = mouseY + "px"; // устанавливаем новое значение верхнего отступа для изображения
-        });
+            // Если курсор двигается вниз или влево, обновляем позицию картинки
+            if (x < img.offsetLeft || y < img.offsetTop) {
+                img.style.left = '0'; // картинка прижимается к левому краю
+                img.style.top = '0'; // картинка прижимается к верхнему краю
+            }
+        }
+        
+        // Добавляем слушателя события на движение курсора
+        document.addEventListener('mousemove', moveImage);
     </script>
      <img src="https://minecraft.rent/static/images/0c7f59d5b5ca2bc68e84.png" alt="Произошла ошибка лох" width="100%" height="750.52">    
 </body>
